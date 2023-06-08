@@ -6,12 +6,22 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.4.0",
+    "concurrently": "^8.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.1.4",
+    "jsonparser": "^1.0.1",
+    "nodemon": "^2.0.22",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
+    "three": "^0.153.0",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "dev_server": " cd api && nodemon index.js --ignore client",
+    "dev_client": "yarn start",
+    "dpm": " concurrently \"yarn run dev_server\" \"yarn run dev_client\"",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -34,5 +44,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "proxy": "http://localhost:3001"
 }
