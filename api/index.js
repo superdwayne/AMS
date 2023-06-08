@@ -35,7 +35,7 @@ app.get('/who', (req, res) => {
       });
 
       res.json({ stats, images });
-      //console.log(stats);
+     // console.log(stats);
     })
     .catch(error => {
       console.error(error);

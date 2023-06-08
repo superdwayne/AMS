@@ -2,20 +2,22 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 function App() {
-  const [message, setMessage] = useState('');
+  const [data, setData] = useState('');
 
   useEffect(() => {
     axios.get('http://localhost:3001/who')
-      .then(response => setMessage(response.data.message))
+      .then(response => {
+        const { stats, images } = response.data;
+        setData({ stats, images });
+        console.log(response.data)
+      })
       .catch(error => console.error(error));
-      console.log(message)
   }, []);
-
   return (
     <div className="App">
       <header className="App-header">
         <p>
-          Message from server: {message}
+          {/* Message from server: {data} */}
         </p>
       </header>
     </div>
