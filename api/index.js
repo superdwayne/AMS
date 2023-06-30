@@ -36,7 +36,7 @@ app.get('/weather', (req, res) => {
       };
      
 
-      res.json({ weatherData });
+      res.send({ weatherData });
     })
     .catch(error => {
       console.error(error);
