@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Request from "./requests";
 import { Parallax, ParallaxBanner } from 'react-scroll-parallax';
 import axios from 'axios';
 import { Player } from 'video-react';
@@ -10,18 +11,43 @@ function Weather() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const apiUrl = process.env.REACT_APP_API_URL;
-    axios
-      .get(`http://localhost:3002/weather`)
-      .then(response => {
-        setWeatherData(response.data.weatherData);
-        console.log(response.data.weatherData.currentTemp);
-      })
-      .catch(error => {
-        console.error(error);
-        setError('An error occurred while fetching weather data.');
+    const run = ()=>{
+      const params = {
+        method: 'GET',
+        body: JSON.stringify(),
+        headers: {
+          'Content-Type': 'application/json',
+          
+        },
+      };
+      
+      console.log("Component mounting.." )
+  
+        Request(`/weather`, params, (response) => {
+  
+          setWeatherData(response.weatherData)
+          console.log("WebthreeNews Response",response)
+          
       });
-  }, []);
+  
+    }
+      run();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+  
+
+    // const apiUrl = process.env.REACT_APP_API_URL;
+    // axios
+    //   .get(`http://localhost:3002/weather`)
+    //   .then(response => {
+    //     setWeatherData(response.data.weatherData);
+    //     console.log(response.data.weatherData.currentTemp);
+    //   })
+    //   .catch(error => {
+    //     console.error(error);
+    //     setError('An error occurred while fetching weather data.');
+    //   });
+
 
   useEffect(() => {
     if (weatherData) {
