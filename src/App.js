@@ -21,7 +21,7 @@ function Weather() {
   const [backgroundVideo, setBackgroundVideo] = useState(null);
 
   useEffect(() => {
-    axios.get('weather')
+    axios.get('/weather')
       .then(response => {
         setWeatherData(response.data.weatherData);
         console.log(response.data.weatherData.currentTemp)
