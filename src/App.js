@@ -6,6 +6,8 @@ import axios from 'axios';
 import { Player } from 'video-react';
 import './App.css';
 
+const apiUrl = process.env.REACT_APP_API_URL;
+
 const birdWeatherVideo = './video/birds.mp4';
 const coldWeatherVideo = './video/grey.mp4';
 const warmWeatherVideo  = './video/fff.mp4';
@@ -21,7 +23,7 @@ function Weather() {
   const [backgroundVideo, setBackgroundVideo] = useState(null);
 
   useEffect(() => {
-    axios.get('http://localhost:3002/weather')
+    axios.get(`${apiUrl}/weather`)
       .then(response => {
         setWeatherData(response.data.weatherData);
         console.log(response.data.weatherData.currentTemp)
