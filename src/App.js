@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-
 import { Parallax } from 'react-scroll-parallax'
 import { ParallaxBanner } from "react-scroll-parallax";
 import { useParallax } from "react-scroll-parallax";
@@ -22,7 +21,7 @@ function Weather() {
   const [backgroundVideo, setBackgroundVideo] = useState(null);
 
   useEffect(() => {
-    axios.get('http://localhost:3002/weather')
+    axios.get('weather')
       .then(response => {
         setWeatherData(response.data.weatherData);
         console.log(response.data.weatherData.currentTemp)
