@@ -7,7 +7,7 @@ const app = express();
 app.use(cors());
 
 // Weather API route
-app.get('/weather', async (req, res, next) => {
+app.get('/api/weather', async (req, res, next) => {
   try {
     const location = 'London'; // replace with your desired location
     const apiKey = '7a8fd7f7876cb914ed733ae548f7d6f9'; // replace with your API key

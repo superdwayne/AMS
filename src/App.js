@@ -23,7 +23,7 @@ function Weather() {
       
       console.log("Component mounting.." )
   
-        Request(`/weather`, params, (response) => {
+        Request(`api/weather`, params, (response) => {
   
           setWeatherData(response.weatherData)
           console.log("WebthreeNews Response",response)
